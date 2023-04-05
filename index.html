@@ -12,16 +12,16 @@
     <script>
          
   var database = firebase.database();
-    database.ref('Devices/Redmi Y3 *** 04563662d2c68920/names').once('value', function(snapshot){
+    database.ref('Customer').once('value', function(snapshot){
         if(snapshot.exists()){
             var content = '';
             snapshot.forEach(function(data){
                 var val = data.val();
                 content +='<tr>';       
-                content += '<td>' + val.Messages + '</td>';
-                content += '<td>' + val.names + '</td>';
-                content += '<td>' + val.numbers + '</td>';
-                // content += '<td>' + val.q4 + '</td>';
+                content += '<td>' + val.username + '</td>';
+                content += '<td>' + val.email + '</td>';
+                content += '<td>' + val.phone + '</td>';
+                content += '<td>' + val.address + '</td>';
                 // content += '<td>' + val.q5 + '</td>';
                 // content += '<td>' + val.q6 + '</td>';
                 // content += '<td>' + val.q7 + '</td>';
