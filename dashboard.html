@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Firebase Sample Survey</title>
+    <title>RBNDJ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,23 +12,24 @@
     <script>
          
   var database = firebase.database();
-    database.ref('Customer').once('value', function(snapshot){
+    database.ref('biodata').once('value', function(snapshot){
         if(snapshot.exists()){
             var content = '';
             snapshot.forEach(function(data){
                 var val = data.val();
                 content +='<tr>';       
-                content += '<td>' + val.username + '</td>';
-                content += '<td>' + val.email + '</td>';
+                content += '<td>' + val.name + '</td>';
+                content += '<td>' + val.father + '</td>';
                 content += '<td>' + val.phone + '</td>';
+                content += '<td>' + val.email + '</td>';
+                content += '<td>' + val.gotra + '</td>';
+                content += '<td>' + val.education + '</td>';
+                content += '<td>' + val.job + '</td>';
+                content += '<td>' + val.dob + '</td>';
+                content += '<td>' + val.hobby + '</td>';
+                content += '<td>' + val.gender.gender + '</td>';
+                content += '<td>' + val.height + '</td>';
                 content += '<td>' + val.address + '</td>';
-                // content += '<td>' + val.q5 + '</td>';
-                // content += '<td>' + val.q6 + '</td>';
-                // content += '<td>' + val.q7 + '</td>';
-                // content += '<td>' + val.q8 + '</td>';
-                // content += '<td>' + val.q9 + '</td>';
-                // content += '<td>' + val.contact + '</td>';
-                // content += '<td>' + val.comment + '</td>';
                 content += '</tr>';
             });
             $('#table1').append(content);
@@ -40,21 +41,22 @@
   <body>
     <div class="container">
       <h1></h1>
-      <p>Canteen Survey Results:</p>
+      <p>Biodata</p>
       <table class="table table-striped" id="table1">
     		<thead>
     			<tr>
-    		<th>Q1</th>
-            <th>Q2</th>
-            <th>Q3</th>
-            <th>Q4</th>
-            <th>Q5</th>
-            <th>Q6</th>
-            <th>Q7</th>
-            <th>Q8</th>
-            <th>Q9</th>
-            <th>Contact</th>
-            <th>Comment</th>
+    		<th>Name</th>
+            <th>Father</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Gotra</th>
+            <th>Education</th>
+            <th>Job</th>
+            <!-- <th>DOB</th> -->
+            <th>Hobbies</th>
+            <th>Gender</th>
+            <th>Height</th>
+            <th>Address</th>
     				
     			</tr>
     		</thead>
