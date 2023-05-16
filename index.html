@@ -1,79 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RBNDJ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="assets/app.js"></script>
-    <script src="assets/signin.js"></script>
-    <link rel="stylesheet" href="/assets/login.css">
-</head>
-<body>
-    <div class="login">
-        <h5>Login Form</h5>
-        <input type="text" name="usern" placeholder="Email Address" id="email" value="" class="text">
-        <input type="Password" name="usern" placeholder="Password" id="inputPassword" value="" class="text">
-        <input type="button" name="usern" value="Login" class="btn" id="signin">
-    </div>
     <script>
-
-<<<<<<< HEAD
-
-
-const auth = firebase.auth()
-
-let signInButton = document.getElementById('signin')
-  signInButton.addEventListener("click", (e) => {
-    //Prevent Default Form Submission Behavior
-    e.preventDefault()
-    console.log("clicked")
-
-    var mail = document.getElementById("email")
-    // var email = document.getElementById("email")
-    var password = document.getElementById("inputPassword")
-
-    auth.signInWithEmailAndPassword(mail.value, password.value) 
-    .then((userCredential) => {
-      // location.reload();
-      // Signed in 
-      var user = userCredential.user;
-    //   console.log("user",user.mail)
-      window.location = "dashboard.html";
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // alert("error code", errorCode)
-      alert( errorMessage)
+         
+  var database = firebase.database();
+    database.ref('biodata').once('value', function(snapshot){
+        if(snapshot.exists()){
+            var content = '';
+            snapshot.forEach(function(data){
+                var val = data.val();
+                content +='<tr>';       
+                content += '<td>' + val.name + '</td>';
+                content += '<td>' + val.father + '</td>';
+                content += '<td>' + val.phone + '</td>';
+                content += '<td>' + val.email + '</td>';
+                content += '<td>' + val.gotra + '</td>';
+                content += '<td>' + val.education + '</td>';
+                content += '<td>' + val.job + '</td>';
+                content += '<td>' + val.dob + '</td>';
+                content += '<td>' + val.hobby + '</td>';
+                content += '<td>' + val.gender.gender + '</td>';
+                content += '<td>' + val.height + '</td>';
+                content += '<td>' + val.address + '</td>';
+                content += '</tr>';
+            });
+            $('#table1').append(content);
+        }
     });
-   })
-    </script>
-</body>
-</html>
-=======
+  </script>
+  </head>
+
   <body>
     <div class="container">
       <h1></h1>
-      <p>Canteen Survey Results:</p>
+      <p>Biodata</p>
       <table class="table table-striped" id="table1">
     		<thead>
     			<tr>
-    		<th>Username</th>
+    		<th>Name</th>
+            <th>Father</th>
+            <th>Phone</th>
             <th>Email</th>
-            <th>Mobile No.</th>
-            <th>Location</th>
-            <th>Q5</th>
-            <th>Q6</th>
-            <th>Q7</th>
-            <th>Q8</th>
-            <th>Q9</th>
-            <th>Contact</th>
-            <th>Comment</th>
+            <th>Gotra</th>
+            <th>Education</th>
+            <th>Job</th>
+            <!-- <th>DOB</th> -->
+            <th>Hobbies</th>
+            <th>Gender</th>
+            <th>Height</th>
+            <th>Address</th>
     				
     			</tr>
     		</thead>
@@ -84,4 +67,3 @@ let signInButton = document.getElementById('signin')
     
   </body>
 </html>
->>>>>>> 1a790012dc04632244e4bbcee0741f1f364bb9a8
