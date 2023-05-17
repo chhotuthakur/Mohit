@@ -27,15 +27,17 @@
                 content += '<td>' + val.job + '</td>';
                 content += '<td>' + val.dob + '</td>';
                 content += '<td>' + val.hobby + '</td>';
-                content += '<td>' + val.gender.gender + '</td>';
+                content += '<td>' + val.gender + '</td>';
                 content += '<td>' + val.height + '</td>';
                 content += '<td>' + val.address + '</td>';
                 content += '</tr>';
+                
             });
             $('#table1').append(content);
         }
     });
   </script>
+  
   </head>
 
   <body>
@@ -43,8 +45,8 @@
       <h1></h1>
       <p>Biodata</p>
       <table class="table table-striped" id="table1">
-    		<thead>
-    			<tr>
+    		<thead style="background-color: blue;">
+    			<tr style="background-color: yellow;">
     		<th>Name</th>
             <th>Father</th>
             <th>Phone</th>
@@ -57,6 +59,7 @@
             <th>Gender</th>
             <th>Height</th>
             <th>Address</th>
+            <th> <input type="button" id="btnExport" value="Export" onclick="Export()" style="padding: 3px;color: white; background-color: blue;" /></th>
     				
     			</tr>
     		</thead>
@@ -64,6 +67,24 @@
     	
     	</table>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+      function Export() {
+          html2canvas(document.getElementById('table1'), {
+              onrendered: function (canvas) {
+                  var data = canvas.toDataURL();
+                  var docDefinition = {
+                      content: [{
+                          image: data,
+                          width: 500
+                      }]
+                  };
+                  pdfMake.createPdf(docDefinition).download("Table.pdf");
+              }
+          });
+      }
+  </script>
     
   </body>
 </html>
