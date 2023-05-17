@@ -1,6 +1,11 @@
 var config = {
 
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> 93830f294a69f0b98e7992f6adeae79d75c9bebc
   apiKey: "AIzaSyAWq5dU6zRXXo_zPNFnd7mPOZg3mNooAs0",
   authDomain: "match-making-234ad.firebaseapp.com",
   databaseURL: "https://match-making-234ad.firebaseio.com",
@@ -10,6 +15,7 @@ var config = {
   appId: "1:540215091505:web:e918e1ca7cd3f5c9c5d010",
   measurementId: "G-T82ZYN4KBY"
 
+<<<<<<< HEAD
 
 
 
@@ -25,6 +31,23 @@ var config = {
     // messagingSenderId: "396360667640",
     // appId: "1:396360667640:web:d1f91a54d99d786287460d",
     // measurementId: "G-LP0VZ1N88K"
+=======
+    
+    
+    
+    
+    
+    
+    
+//     apiKey: "AIzaSyBlKkd3wXSQ6ONwgDl7lzAI6fb2mbMo2RQ",
+//     authDomain: "clients-97258.firebaseapp.com",
+//     databaseURL: "https://clients-97258-default-rtdb.firebaseio.com",
+//     projectId: "clients-97258",
+//     storageBucket: "clients-97258.appspot.com",
+//     messagingSenderId: "396360667640",
+//     appId: "1:396360667640:web:d1f91a54d99d786287460d",
+//     measurementId: "G-LP0VZ1N88K"
+>>>>>>> 93830f294a69f0b98e7992f6adeae79d75c9bebc
 
 
 
